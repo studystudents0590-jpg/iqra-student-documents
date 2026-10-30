@@ -419,6 +419,89 @@ function printStudentForm(id){const s=students.find(x=>x.id===(id||$('choose').v
 #card.topper-layout #topperBadge{display:none!important}
 @media(max-width:520px){#card.topper-layout .topper-medal{min-height:150px;padding:6px;gap:2px}#card.topper-layout .topper-medal .medal-icon{height:128px}#card.topper-layout .topper-medal .cup-emoji{font-size:82px}#card.topper-layout .topper-medal .cup-number{top:43px;font-size:31px}#card.topper-layout .topper-medal .medal-text{font-size:16px}#card.topper-layout .topper-medal .medal-stars{font-size:21px}#card.topper-layout .topper-medal .medal-reason{font-size:10px;padding:5px 3px}#card.topper-layout .topper-medal .medal-result{font-size:11px;padding:4px 13px}#card.topper-layout .student-info-layout{grid-template-columns:38% 62%;gap:3px}#card.topper-layout .student-info-layout .details{font-size:10px;line-height:1.55}#card.topper-layout .student-photo-column .cardphoto{height:108px}}
 op:46px;font-size:32px}#card.topper-layout .topper-medal .medal-text{font-size:19px}#card.topper-layout #cphoto,#card.topper-layout #cphotoPlaceholder{height:125px}#card.topper-layout .details{font-size:11px}}
+
+/* FINAL AWARD CARD LAYOUT — trophy on the left, separate information panels on the right */
+#card.topper-layout .topper-medal{
+ display:grid!important;grid-template-columns:46% 54%;align-items:center;justify-content:stretch;
+ gap:5px;width:96%;min-height:188px;margin:9px auto 10px;padding:9px 8px;
+ border:3px solid #c58a08;border-radius:18px;
+ background:linear-gradient(135deg,#fffdf1 0%,#fff0a4 48%,#ffe16a 100%);
+ box-shadow:0 5px 12px #8a650055,inset 0 0 0 2px #fff9d8;overflow:visible;
+}
+#card.topper-layout .topper-medal .medal-icon{
+ position:relative;display:flex;align-items:center;justify-content:center;flex:none;
+ width:100%;height:168px;min-width:0;filter:drop-shadow(0 4px 3px #75450055);
+}
+#card.topper-layout .topper-medal .cup-emoji{font-size:0;line-height:0}
+#card.topper-layout .topper-medal .medal-icon:before{
+ content:"";position:absolute;left:19%;top:25%;width:62%;height:49%;
+ background:linear-gradient(100deg,#a95600 0%,#ffd52b 18%,#fff7a1 38%,#f6a900 62%,#ffe66a 78%,#a85a00 100%);
+ border:5px solid #c47a00;border-radius:12px 12px 42% 42%;
+ box-shadow:inset 0 0 0 3px #fff1a2, inset 0 -8px 10px #9b4d00aa;
+ clip-path:polygon(0 0,100% 0,88% 75%,68% 100%,32% 100%,12% 75%);
+}
+#card.topper-layout .topper-medal .medal-icon:after{
+ content:"1st";position:absolute;left:9%;right:9%;bottom:2%;height:27px;
+ display:flex;align-items:center;justify-content:center;
+ color:white;font-size:19px;font-weight:1000;text-shadow:0 2px 2px #6d0000;
+ background:linear-gradient(180deg,#ff4b35,#c90000);border:2px solid #a80000;
+ clip-path:polygon(0 0,100% 0,91% 100%,50% 78%,9% 100%);
+}
+#card.topper-layout .topper-medal .medal-icon{background:radial-gradient(ellipse at 50% 42%,#fff7c2 0%,#ffd54a55 48%,transparent 70%)}
+#card.topper-layout .topper-medal .cup-number{
+ z-index:2;top:48%;left:0;right:0;transform:translateY(-50%);
+ color:#7b3100;font-size:43px;font-weight:1000;text-shadow:1px 1px #fff1a4,-1px -1px #fff1a4;
+}
+#card.topper-layout .topper-medal .medal-text{
+ display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:5px;
+ min-width:0;flex:initial;text-align:center;font-size:14px;line-height:1.12;color:#713600;
+}
+#card.topper-layout .topper-medal .medal-text>b{
+ display:block;padding:8px 3px;border:2px solid #e1a500;border-radius:11px;
+ background:linear-gradient(135deg,#fff9d6,#ffd84e);font-size:16px;font-weight:1000;
+}
+#card.topper-layout .topper-medal .medal-stars{
+ display:block;font-size:22px;letter-spacing:4px;line-height:1.1;color:#b66a00;
+}
+#card.topper-layout .topper-medal .medal-reason{
+ display:block;width:100%;margin:0;padding:8px 5px;border:2px solid #edc13c;border-radius:11px;
+ background:linear-gradient(135deg,#fffdf0,#ffe58a);font-size:11px;line-height:1.25;color:#3c321d;font-weight:700;
+}
+#card.topper-layout .topper-medal .medal-reason>b{display:block;color:#087a36;font-size:13px;margin-bottom:3px}
+#card.topper-layout .topper-medal .medal-result{
+ display:block;margin:0 auto;padding:6px 10px;width:90%;border:2px solid #087a36;border-radius:22px;
+ background:linear-gradient(180deg,#20b84d,#007b32);color:#fff;font-size:13px;font-weight:1000;
+ box-shadow:0 2px 4px #0002;
+}
+/* Rank-specific trophy ribbon and medal colours */
+#card.topper-layout.rank-2 .topper-medal{border-color:#8997a7;background:linear-gradient(135deg,#fff,#dce5ee 52%,#b8c7d8)}
+#card.topper-layout.rank-2 .topper-medal .medal-icon:before{background:linear-gradient(100deg,#66717d,#f5f8fb 25%,#aab5c2 55%,#eef3f7 75%,#697583);border-color:#778493;box-shadow:inset 0 0 0 3px #fff}
+#card.topper-layout.rank-2 .topper-medal .medal-icon:after{content:"2nd";background:linear-gradient(180deg,#438df0,#064ca9);border-color:#06418e}
+#card.topper-layout.rank-2 .topper-medal .medal-text>b{border-color:#8997a7;background:linear-gradient(135deg,#fff,#c8d5e3)}
+#card.topper-layout.rank-2 .topper-medal .medal-stars{color:#52677f}
+#card.topper-layout.rank-2 .topper-medal .medal-reason{border-color:#8997a7}
+#card.topper-layout.rank-2 .topper-medal .medal-result{background:linear-gradient(180deg,#3995ed,#1454a0);border-color:#1454a0}
+#card.topper-layout.rank-3 .topper-medal{border-color:#b66d35;background:linear-gradient(135deg,#fff8ee,#f3c08d 52%,#d98a4d)}
+#card.topper-layout.rank-3 .topper-medal .medal-icon:before{background:linear-gradient(100deg,#87411c,#ffca79 25%,#bd6b2b 55%,#ffe0a8 75%,#88431d);border-color:#9c5528;box-shadow:inset 0 0 0 3px #ffe5c1}
+#card.topper-layout.rank-3 .topper-medal .medal-icon:after{content:"3rd";background:linear-gradient(180deg,#25a85a,#08733a);border-color:#075b30}
+#card.topper-layout.rank-3 .topper-medal .medal-text>b{border-color:#b66d35;background:linear-gradient(135deg,#fff3df,#e7a66b)}
+#card.topper-layout.rank-3 .topper-medal .medal-stars{color:#98501f}
+#card.topper-layout.rank-3 .topper-medal .medal-reason{border-color:#b66d35}
+#card.topper-layout.rank-3 .topper-medal .medal-result{background:linear-gradient(180deg,#e58b42,#a34d20);border-color:#9a4a20}
+@media(max-width:520px){
+ #card.topper-layout .topper-medal{grid-template-columns:43% 57%;min-height:172px;padding:7px 5px;gap:3px}
+ #card.topper-layout .topper-medal .medal-icon{height:152px}
+ #card.topper-layout .topper-medal .medal-icon:before{top:24%;height:48%;border-width:4px}
+ #card.topper-layout .topper-medal .medal-icon:after{height:24px;font-size:16px}
+ #card.topper-layout .topper-medal .cup-number{font-size:35px}
+ #card.topper-layout .topper-medal .medal-text{font-size:12px;gap:4px}
+ #card.topper-layout .topper-medal .medal-text>b{font-size:13px;padding:6px 2px}
+ #card.topper-layout .topper-medal .medal-stars{font-size:19px;letter-spacing:2px}
+ #card.topper-layout .topper-medal .medal-reason{font-size:10px;padding:6px 3px}
+ #card.topper-layout .topper-medal .medal-reason>b{font-size:12px}
+ #card.topper-layout .topper-medal .medal-result{font-size:11px;padding:5px 4px}
+}
+
 </style></head><body><header><h1>${esc(($('schoolName')?.value)||'IQRA PUBLIC SCHOOL')}</h1><div>ENGLISH MEDIUM • Gadayipur, Mauaima, Prayagraj</div><h2>COMPLETE STUDENT RECORD FORM</h2></header>${s.photo?`<img class="photo" src="${assetSrc(s.photo)}">`:''}<div class="grid">${rows.map(([k,v])=>`<div class="field"><b>${esc(k)}</b>${esc(v||'—')}</div>`).join('')}</div><div class="sign"><span>Parent / Guardian Signature: __________________</span><span>Manager / Principal Signature & Seal: __________________</span></div><p style="font-size:10px;margin-top:24px">Confidential school record. Share only with an authorized recipient.</p><button onclick="window.print()">Print / Save PDF</button><script>setTimeout(()=>window.print(),500)<\/script></body></html>`);w.document.close()}
 function selectedClass(){const c=$('filter')?.value||'';if(!c){alert('First select a class using the Class filter or class buttons.');return null}return students.filter(s=>s.cls===c)}
 function downloadText(name,text,type='text/csv;charset=utf-8'){const blob=new Blob(['\ufeff'+text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}

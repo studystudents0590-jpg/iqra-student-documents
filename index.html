@@ -540,15 +540,145 @@ op:46px;font-size:32px}#card.topper-layout .topper-medal .medal-text{font-size:1
 }
 
 
-/* Tiny final adjustment requested: move topper heading and reason about one letter-width right. */
-#card .topper-medal .medal-text,
-.topper-medal .medal-text{
-  padding-left:20px!important;
+/* FINAL FIX — stronger selectors override earlier topper CSS in preview, download and print. */
+#card.topper-layout .topper-medal{
+  display:grid!important;
+  grid-template-columns:minmax(0,43%) minmax(0,57%)!important;
+  align-items:center!important;
+  justify-content:stretch!important;
+  gap:0!important;
+  box-sizing:border-box!important;
+  width:96%!important;
+  max-width:96%!important;
+  min-width:0!important;
+  padding:7px!important;
+  overflow:hidden!important;
+}
+#card.topper-layout .topper-medal .medal-icon{
+  grid-column:1!important;
+  grid-row:1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  height:100%!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+#card.topper-layout .topper-medal .topper-trophy-art{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:148px!important;
+  min-width:0!important;
+  object-fit:contain!important;
+  flex:0 1 auto!important;
+}
+#card.topper-layout .topper-medal .cup-number{display:none!important}
+#card.topper-layout .topper-medal .medal-text{
+  grid-column:2!important;
+  grid-row:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:center!important;
+  position:static!important;
+  inset:auto!important;
+  transform:none!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:4px 4px 4px 16px!important;
+  gap:4px!important;
+  overflow:hidden!important;
+  text-align:center!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  line-height:1.12!important;
+  font-size:clamp(12px,3.8vw,16px)!important;
+}
+#card.topper-layout .topper-medal .medal-text>b{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:4px 2px!important;
+  font-size:clamp(12px,3.8vw,16px)!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+#card.topper-layout .topper-medal .medal-stars{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  font-size:clamp(18px,5vw,23px)!important;
+  letter-spacing:2px!important;
+  line-height:1.08!important;
+}
+#card.topper-layout .topper-medal .medal-reason{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:6px 4px!important;
+  font-size:clamp(10px,3.2vw,13px)!important;
+  line-height:1.18!important;
+  text-align:center!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+}
+#card.topper-layout .topper-medal .medal-reason>b{
+  display:block!important;
+  margin:0 0 3px!important;
+}
+#card.topper-layout .topper-medal .medal-result{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:90%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0 auto!important;
+  padding:5px 3px!important;
+  font-size:clamp(11px,3.3vw,14px)!important;
+  line-height:1.12!important;
+  text-align:center!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
 }
 @media(max-width:520px){
-  #card .topper-medal .medal-text,
-  .topper-medal .medal-text{
-    padding-left:18px!important;
+  #card.topper-layout .topper-medal{
+    grid-template-columns:minmax(0,42%) minmax(0,58%)!important;
+    padding:6px!important;
+  }
+  #card.topper-layout .topper-medal .medal-text{
+    padding:4px 3px 4px 15px!important;
+    gap:3px!important;
+  }
+  #card.topper-layout .topper-medal .topper-trophy-art{max-height:132px!important}
+}
+@media print{
+  #card.topper-layout .topper-medal{
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
   }
 }
 

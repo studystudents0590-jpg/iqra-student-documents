@@ -539,6 +539,19 @@ op:46px;font-size:32px}#card.topper-layout .topper-medal .medal-text{font-size:1
  #card.topper-layout .topper-medal .medal-result{font-size:11px;padding:5px 4px}
 }
 
+
+/* Tiny final adjustment requested: move topper heading and reason about one letter-width right. */
+#card .topper-medal .medal-text,
+.topper-medal .medal-text{
+  padding-left:20px!important;
+}
+@media(max-width:520px){
+  #card .topper-medal .medal-text,
+  .topper-medal .medal-text{
+    padding-left:18px!important;
+  }
+}
+
 </style></head><body><header><h1>${esc(($('schoolName')?.value)||'IQRA PUBLIC SCHOOL')}</h1><div>ENGLISH MEDIUM • Gadayipur, Mauaima, Prayagraj</div><h2>COMPLETE STUDENT RECORD FORM</h2></header>${s.photo?`<img class="photo" loading="lazy" decoding="async" src="${assetSrc(s.photo)}">`:''}<div class="grid">${rows.map(([k,v])=>`<div class="field"><b>${esc(k)}</b>${esc(v||'—')}</div>`).join('')}</div><div class="sign"><span>Parent / Guardian Signature: __________________</span><span>Manager / Principal Signature & Seal: __________________</span></div><p style="font-size:10px;margin-top:24px">Confidential school record. Share only with an authorized recipient.</p><button onclick="window.print()">Print / Save PDF</button><script>setTimeout(()=>window.print(),500)<\/script></body></html>`);w.document.close()}
 function selectedClass(){const c=$('filter')?.value||'';if(!c){alert('First select a class using the Class filter or class buttons.');return null}return students.filter(s=>s.cls===c)}
 function downloadText(name,text,type='text/csv;charset=utf-8'){const blob=new Blob(['\ufeff'+text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}

@@ -225,7 +225,7 @@ function updateGoodStudentPanel(student, isTopper, awards){
  if(!panel)return;
  const hasAwards=Array.isArray(awards)&&awards.length>0;
  const hasSpecialTitle=!student?.awardsSuppressed&&!!String(student?.specialTitle||'').trim();
- const hasPosition=!!(isTopper||student?.isTopper);
+ const hasPosition=!!isTopper; // Use the effective visible topper state; suppressed saved topper must not hide the Good Student panel.
  panel.style.display=(!hasPosition&&!hasAwards&&!hasSpecialTitle)?'grid':'none';
 }
 function setTopperRankArt(rank){const el=$('topperTrophyArt');if(el)el.src=topperRankArt[Math.max(1,Math.min(3,Number(rank)||1))-1];}
